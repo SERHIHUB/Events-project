@@ -9,3 +9,8 @@
   justify-content: space-between;
   margin-top: 16px;
 }
+
+.btn {
+  background-color: inherit;
+  color: rgb(0, 85, 255);
+}

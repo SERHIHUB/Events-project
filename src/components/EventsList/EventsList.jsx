@@ -6,6 +6,7 @@ import css from "./EventsList.module.css";
 import { useEffect } from "react";
 import { fetchEvents } from "../../redux/events/operations";
 import { selectEvents } from "../../redux/events/selectors";
+import { PaginationComponent } from "../PaginationComponent/PaginationComponent";
 
 export const EventsList = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ export const EventsList = () => {
           );
         })}
       </ul>
+      <PaginationComponent />
     </Container>
   );
 };
