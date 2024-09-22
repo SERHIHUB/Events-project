@@ -1,9 +1,17 @@
 import { useForm } from "react-hook-form";
 import { Container } from "../Container/Container";
 import css from "./RegisterForm.module.css";
-// import Select from "react-select";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { registerUser } from "../../redux/events/operations";
 
 export const RegisterForm = () => {
+  const [eventId, setEventId] = useState(() => {
+    const currentId = JSON.parse(localStorage.getItem("currentRegister"));
+    return currentId;
+  });
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -12,20 +20,24 @@ export const RegisterForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const { fullName, email, birth } = data;
-    console.log(data);
+    const { fullName, email, birth, inform } = data;
+
+    const newEmail = email.toLowerCase();
+    const credentials = {
+      name: fullName,
+      email: newEmail,
+      birth,
+      userFoundOut: inform,
+    };
+    console.log({ eventId, credentials });
+    dispatch(
+      registerUser({
+        eventId,
+        credentials,
+      })
+    );
     reset();
   };
-
-  // const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
-  //   <>
-  //     <label>{label}</label>
-  //     <select name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
-  //       <option value="20">20</option>
-  //       <option value="30">30</option>
-  //     </select>
-  //   </>
-  // ));
 
   return (
     <Container>
@@ -58,7 +70,33 @@ export const RegisterForm = () => {
         </label>
         {errors.birth && <p>Please enter number for birth.</p>}
 
-        <input type="submit" />
+        <>
+          <h3>Where did you hear about this event?</h3>
+          <div className={css.radioWrapper}>
+            <label className={css.radioLabel}>
+              <input
+                type="radio"
+                {...register("inform")}
+                value="social_media"
+              />
+              Social media
+            </label>
+            <label className={css.radioLabel}>
+              <input type="radio" {...register("inform")} value="friends" />
+              Friends
+            </label>
+            <label className={css.radioLabel}>
+              <input
+                type="radio"
+                {...register("inform")}
+                value="found_myself"
+              />
+              Found myself
+            </label>
+          </div>
+        </>
+
+        <input className={css.submitBtn} type="submit" value={"Submit"} />
       </form>
     </Container>
   );

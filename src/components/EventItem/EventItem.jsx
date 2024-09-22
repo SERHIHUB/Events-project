@@ -3,11 +3,15 @@ import { Button } from "../Button/Button";
 import css from "./EventItem.module.css";
 
 export const EventItem = ({ currentEvent }) => {
-  const eventUsers = currentEvent.participants;
-
   const handleViewClick = () => {
-    console.log(eventUsers);
-    localStorage.setItem("currentEvent", JSON.stringify(eventUsers));
+    localStorage.setItem(
+      "currentEvent",
+      JSON.stringify(currentEvent.participants)
+    );
+  };
+
+  const handleregisterClick = () => {
+    localStorage.setItem("currentRegister", JSON.stringify(currentEvent._id));
   };
 
   return (
@@ -17,12 +21,16 @@ export const EventItem = ({ currentEvent }) => {
       <ul className={css.buttonList}>
         <li>
           <Link to="/register">
-            <Button>Register</Button>
+            <Button className={css.btn} onClick={handleregisterClick}>
+              Register
+            </Button>
           </Link>
         </li>
         <li>
           <Link to="/participants">
-            <Button onClick={handleViewClick}>View</Button>
+            <Button className={css.btn} onClick={handleViewClick}>
+              View
+            </Button>
           </Link>
         </li>
       </ul>

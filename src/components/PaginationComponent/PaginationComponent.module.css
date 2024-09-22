@@ -1,0 +1,17 @@
+.paginationWrapper {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  column-gap: 12px;
+}
+
+.paginationList {
+  display: flex;
+  column-gap: 4px;
+}
+
+.arrow {
+  fill: rgb(0, 85, 255);
+}

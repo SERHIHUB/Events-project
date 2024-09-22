@@ -43,7 +43,8 @@ const eventSlice = createSlice({
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.newUser = action.payload;
+        console.log(action.payload);
+        // state.newUser = action.payload;
       })
       .addCase(registerUser.rejected, (state) => {
         state.loading = false;
