@@ -11,7 +11,7 @@ import { PaginationComponent } from "../PaginationComponent/PaginationComponent"
 export const EventsList = () => {
   const dispatch = useDispatch();
   const allEvents = useSelector(selectEvents);
-
+  console.log(allEvents);
   useEffect(() => {
     dispatch(fetchEvents());
   }, [dispatch]);

@@ -19,7 +19,8 @@ const eventSlice = createSlice({
       })
       .addCase(fetchEvents.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload.data;
+        console.log(action.payload.data);
+        state.items = action.payload.data.allEvents;
       })
       .addCase(fetchEvents.rejected, (state) => {
         state.loading = false;
