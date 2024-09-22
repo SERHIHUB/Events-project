@@ -1,6 +1,5 @@
 import { Container } from "../Container/Container";
-import { useState, useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 import { nanoid } from "nanoid";
 import css from "./ParticipantsList.module.css";
 
@@ -12,16 +11,20 @@ export const ParticipantsList = () => {
 
   return (
     <Container>
-      <ul className={css.usersList}>
-        {eventUsers.map((item) => {
-          return (
-            <li key={nanoid()} className={css.userItem}>
-              <h3>{item.name}</h3>
-              <p>{item.email}</p>
-            </li>
-          );
-        })}
-      </ul>
+      {eventUsers.length >= 1 ? (
+        <ul className={css.usersList}>
+          {eventUsers.map((item) => {
+            return (
+              <li key={nanoid()} className={css.userItem}>
+                <h3>{item.name}</h3>
+                <p>{item.email}</p>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <h3 className={css.usersNotFound}>There are no users.</h3>
+      )}
     </Container>
   );
 };

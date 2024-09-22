@@ -1,5 +1,4 @@
 .usersList {
-  border: 1px solid #000;
   padding: 4px;
 
   display: flex;
@@ -12,4 +11,8 @@
   width: 180px;
   border: 1px solid #000;
   padding: 16px;
+}
+
+.usersNotFound {
+  text-align: center;
 }

@@ -5,7 +5,7 @@ const eventSlice = createSlice({
   name: "event",
   initialState: {
     items: [],
-    // users: [],
+    paginationInfo: {},
     newUser: [],
     loading: false,
     error: false,
@@ -19,8 +19,8 @@ const eventSlice = createSlice({
       })
       .addCase(fetchEvents.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action.payload.data);
         state.items = action.payload.data.allEvents;
+        state.paginationInfo = action.payload.data.paginationInformation;
       })
       .addCase(fetchEvents.rejected, (state) => {
         state.loading = false;
@@ -44,8 +44,6 @@ const eventSlice = createSlice({
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action.payload);
-        // state.newUser = action.payload;
       })
       .addCase(registerUser.rejected, (state) => {
         state.loading = false;
