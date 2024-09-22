@@ -1,4 +1,4 @@
-.eventsList {
+.usersList {
   border: 1px solid #000;
   padding: 4px;
 
@@ -8,12 +8,8 @@
   justify-content: center;
 }
 
-.title {
-  margin-left: 60px;
-  font-size: 52px;
-  font-weight: 600;
-}
-
-.eventItem {
+.userItem {
+  width: 180px;
   border: 1px solid #000;
+  padding: 16px;
 }
