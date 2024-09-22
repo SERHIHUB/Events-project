@@ -34,5 +34,5 @@ a list of registered participants.
 
 ### Contacts
 
-www.linkedin.com/in/serhii-krasovskyi-in
-chokorik@gmail.com
+- www.linkedin.com/in/serhii-krasovskyi-in
+- chokorik@gmail.com
