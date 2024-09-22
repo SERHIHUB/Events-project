@@ -18,6 +18,8 @@ export const EventItem = ({ currentEvent }) => {
     <div className={css.container}>
       <h3>{currentEvent.title}</h3>
       <p>{currentEvent.description}</p>
+      <p>{currentEvent.date}</p>
+      <p>{currentEvent.organizer}</p>
       <ul className={css.buttonList}>
         <li>
           <Link to="/register">

@@ -7,9 +7,14 @@ const instance = axios.create({
 
 export const fetchEvents = createAsyncThunk(
   "events/fetchAllEvents",
-  async (_, thunkAPI) => {
+  async ({ page, perPage }, thunkAPI) => {
     try {
-      const response = await instance.get("/events/");
+      const response = await instance.get("/events/", {
+        params: {
+          page,
+          perPage,
+        },
+      });
 
       return response.data;
     } catch (error) {

@@ -29,7 +29,7 @@ export const RegisterForm = () => {
       birth,
       userFoundOut: inform,
     };
-    console.log({ eventId, credentials });
+    
     dispatch(
       registerUser({
         eventId,

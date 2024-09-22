@@ -35,15 +35,6 @@ button {
   outline: none;
 }
 
-/* input,
-textarea,
-select {
-  background-color: inherit;
-  color: inherit;
-  outline: none;
-  margin: 0;
-} */
-
 textarea {
   resize: none;
 }
